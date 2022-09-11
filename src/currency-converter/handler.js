@@ -16,9 +16,6 @@ function handler(req, res, next) {
       [`amountIn${String(to).toUpperCase()}`]: conversion
     });
   } catch (err) {
-    if (err instanceof assert.AssertionError) {
-      return next(new Error(err.message));
-    }
-    next(err);
+    next(new Error(err.message));
   }
 }
